@@ -581,7 +581,7 @@ class DatabaseEndpoint(BaseEndpoint):
             result["id"] = id
 
         return await self.http_client.make_request(
-            endpoint="/db/_bulk_get",
+            endpoint="/{db}/_bulk_get",
             method=types.HttpMethod.POST,
             statuses={
                 200: "Request completed successfully",
@@ -640,7 +640,7 @@ class DatabaseEndpoint(BaseEndpoint):
             query["new_edits"] = new_edits
 
         return await self.http_client.make_request(
-            endpoint="/db/_bulk_docs",
+            endpoint="/{db}/_bulk_docs",
             method=types.HttpMethod.POST,
             statuses={
                 201: "Document(s) have been created or updated",
@@ -770,7 +770,7 @@ class DatabaseEndpoint(BaseEndpoint):
             json_data["selector"] = selector
 
         return await self.http_client.make_request(
-            endpoint="/db/_find",
+            endpoint="/{db}/_find",
             method=types.HttpMethod.POST,
             statuses={
                 200: "Request completed successfully",
